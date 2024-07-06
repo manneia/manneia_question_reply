@@ -1,0 +1,9 @@
+dist/
+deploy_versions/
+.temp/
+.rn_temp/
+mbti-test-mini/node_modules/
+.DS_Store
+.swc
+LICENSE
+.idea/
