@@ -1,29 +1,33 @@
-import { Component, PropsWithChildren } from 'react'
-import { View, Text } from '@tarojs/components'
-import { AtButton } from 'taro-ui'
-
-import "taro-ui/dist/style/components/button.scss" // 按需引入
 import './index.scss'
+import { Image, View } from '@tarojs/components'
+import { AtButton } from 'taro-ui'
+import headerBg from '/src/assets/logo.jpg'
+import GlobalFooter from '../../components/globalFooter'
+import Taro from '@tarojs/taro'
 
-export default class Index extends Component<PropsWithChildren> {
-  componentDidMount () { }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  render () {
-    return (
-      <View className='index'>
-        <Text>Hello world!</Text>
-        <AtButton type='primary'>I need Taro UI</AtButton>
-        <Text>Taro UI 支持 Vue 了吗？</Text>
-        <AtButton type='primary' circle={true}>支持</AtButton>
-        <Text>共建？</Text>
-        <AtButton type='secondary' circle={true}>来</AtButton>
+/**
+ * 主页
+ */
+export default () => {
+  return (
+    <View className="indexPage">
+      <View className="at-article__h1 title">Mbti 性格测试</View>
+      <View className="at-article__h2 subTitle">
+        只需要短短两分钟时间,就可以准确描述出你是谁,以及你的性格特点
       </View>
-    )
-  }
+      <AtButton
+        type="primary"
+        circle
+        className="enterButton"
+        onClick={() => {
+          Taro.navigateTo({
+            url: '/pages/question/index',
+          })
+        }}>
+        开始测试
+      </AtButton>
+      <Image className="headerBg" src={headerBg} />
+      <GlobalFooter />
+    </View>
+  )
 }
